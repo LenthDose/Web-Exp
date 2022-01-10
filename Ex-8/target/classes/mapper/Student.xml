@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Student">
+    <sql id="studentColumns">stuname,birthday,gender,score,speciality</sql>
+    <select id="findStudentByStuno" parameterType="int" resultType="Student">
+        select <include refid="studentColumns" /> from student where stuno = #{stuno}
+    </select>
+<!--    <select id="findStudentByStuno" parameterType="int" resultType="Student">-->
+<!--        select * from student where stuno = #{stuno}-->
+<!--    </select>-->
+    <select id="findStudentBySpeciality" parameterType="string" resultType="Student">
+        select * from student where speciality = #{speciality}
+    </select>
+    <insert id="insertStudent" parameterType="Student">
+        insert into student(stuname,birthday,gender,score,speciality) values (#{stuname}, #{birthday}, #{gender},
+                                                                              #{score}, #{speciality})
+    </insert>
+    <update id="updateStudentByStuno" parameterType="Student">
+        update student set stuname = #{stuname}, birthday = #{birthday}, gender = #{gender},
+                           score = #{score}, speciality = #{speciality} where stuno = #{stuno}
+    </update>
+    <delete id="deleteStudentByStuname" parameterType="string">
+        delete from student where stuname = #{stuname}
+    </delete>
+</mapper>

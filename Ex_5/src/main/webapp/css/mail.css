@@ -1,0 +1,16 @@
+
+.mail{
+    background-image: url('../img/mailbg.jpg');
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 500px;
+}
+
+.test{
+    width: 450px;
+    position: absolute;
+    height: 300px;
+    left: 5%;
+    top: 10%;
+
+}
